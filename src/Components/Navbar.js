@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styling/Navbar.css';
+import LogIn from './LogIn';
 
 
 class Navbar extends React.Component {
@@ -13,8 +14,7 @@ class Navbar extends React.Component {
     render() {
         return (
             <div className="navbar" >
-                <div className="circle">
-                    <img src="https://cdn.britannica.com/61/118661-050-6CAD9A11/Popcorn.jpg" /></div>
+                    <LogIn></LogIn>
                 <div><button onClick={()=>this.sendData("Search")}>Search</button></div>
                 <div><button onClick={()=>this.sendData("Profile")}>Profile</button></div>
                 <div><button onClick={()=>this.sendData("My Job")}>My Job</button></div>

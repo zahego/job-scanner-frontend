@@ -1,15 +1,32 @@
 import React from 'react';
 import '../Styling/JobPanel.css';
 import JobPosting from './JobPosting';
-const JobPanel=()=>{
-return (
-    <div className="job-panel">
-        <JobPosting title="World Chef" description="Five star Michelin only pls. No fan mail."  emergency={true}></JobPosting>
-        <JobPosting title="World Engineer" description="Top world builder only. No fan mail"  ></JobPosting>
-        <JobPosting title="World AI Master" description="Must be able to train Tesla car. No fan mail" emergency={true} favorite={true}></JobPosting>
-        <JobPosting title="World Hunter" description="Must have hunt a deer twice. No fan mail"  applied={true}></JobPosting>
-    </div>
-)
+import { database } from '../Resources/database';
+const JobPanel = ({ jobscreen }) => {
+    return (
+        <div className="job-panel">
+            {database.jobs.map((job, id) => {
+                if (jobscreen === true) {
+                    return (
+                        <JobPosting key={id}
+                            title={job[0].title}
+                            description={job[1].description}
+                            emergency={job[2].emergency}
+                            favorite={job[3].favorite}
+                            applied={job[4].applied}></JobPosting>
+                    )
+                }
+                else{
+                    return (
+                        <JobPosting key={id}
+                            title={job[0].title}
+                            description={job[1].description}></JobPosting>
+                    )
+                }
+            })}
+
+        </div>
+    )
 }
 
 export default JobPanel;

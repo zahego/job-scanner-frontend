@@ -2,7 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import DescriptionIcon from '@material-ui/icons/Description';
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '100px',
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
 }));
-const ResumePanel = () => {
+const ResumePanel = ({profileScreen}) => {
     const classes = useStyles();
 
     const handleDelete = () => {
@@ -53,6 +56,8 @@ const ResumePanel = () => {
                 /* onDelete={handleDelete}*/
                 style={{width:"250px", height: "40px", backgroundColor: '#3498DB', color: 'white'}}
                 />
+                {profileScreen===true?<AddBoxIcon style={{ color: '#3498DB', fontSize: "50px"}}/>:null}
+                
             </div>
         </div>
     )
